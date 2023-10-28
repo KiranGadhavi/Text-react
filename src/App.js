@@ -1,28 +1,54 @@
 // import logo from './logo.svg';
 import React,{ useState } from 'react';
 import './App.css';
+import Alert from './components/Alert';
 import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 
   function App() {
-  const [mode, setMode] = useState('light');
+  const [mode, setMode] = useState('light');//Whether dark mode is enable or not
+  const [alert, setAlert]=useState(null);
+
+  const showAlert=(message,type)=>{
+    setAlert({
+      msg:message,
+      type:type
+    })
+    setTimeout(()=>{
+      setAlert(null);
+    },1500);
+
+  }
   const toggleMode=()=>{
     if(mode === 'light'){
       setMode('dark');
       document.body.style.backgroundColor='grey';
+      showAlert("Dark mode has been enabled","success")
+      document.title='Text-react- Dark mode';//change tab tittle content
+      // setInterval( ()=>{
+      //   document.title='Text-react is an amazing mode'
+      // },2000);
+      // setInterval( ()=>{
+      //   document.title='Install Text-react now'
+      // })
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
+      showAlert("Light mode has been enable","success")
+     
+      document.title='Text-react- Light mode';
     }
 
   }
   return (
 <>
   <Navbar title='Text-react' aboutText='About Us' mode={mode} toggleMode={toggleMode}/>
-  <TextForm heading='Enter text below to Analyze' mode={mode}/>
-  <About mode={mode} />
+  <Alert alert={alert}/>
+    <TextForm showAlert={showAlert} heading='Enter text below to Analyze' mode={mode}/>
+    <About mode={mode} />
+  
      {/* <Navbar title='Text-react' /> */}
     {/* <Navbar/>*/}
    </>  
