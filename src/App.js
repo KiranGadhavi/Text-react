@@ -6,6 +6,13 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+
   function App() {
   const [mode, setMode] = useState('light');//Whether dark mode is enable or not
   const [alert, setAlert]=useState(null);
@@ -44,10 +51,17 @@ import TextForm from './components/TextForm';
   }
   return (
 <>
-  <Navbar title='Text-react' aboutText='About Us' mode={mode} toggleMode={toggleMode}/>
-  <Alert alert={alert}/>
-    <TextForm showAlert={showAlert} heading='Enter text below to Analyze' mode={mode}/>
-    <About mode={mode} />
+  
+ 
+    <Router>
+      <Navbar title='Text-react' aboutText='About Us' mode={mode} toggleMode={toggleMode}/>
+      <Alert alert={alert}/>
+      <Routes>      
+       <Route exact path="/about" element={<About />} />
+       <Route exact path="/" element={<TextForm showAlert={showAlert} heading='Enter text below to Analyze' mode={mode}/>}/>
+      </Routes>
+    </Router>
+   {/* <About mode={mode} />*/}
   
      {/* <Navbar title='Text-react' /> */}
     {/* <Navbar/>*/}

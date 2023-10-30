@@ -29,7 +29,7 @@ export default function About(props) {
         }
     
   return (
-            <div className='container' style={{backgroundColor:props.mode==='dark'?'grey':'white',myStyle} }>
+            <div className='container my-3' style={{backgroundColor:props.mode==='dark'?'grey':'white',myStyle} }>
             <h1>About Us</h1>
             <div className="accordion accordion-flush" style={myStyle} id="accordionFlushExample" >
             <div className="accordion-item" style={{color:props.mode==='dark'?'white':'black'}}>
@@ -64,7 +64,7 @@ export default function About(props) {
             </div>
         </div>
         <div>
-        <button className='btn btn-success my3' onClick={toggleStyle}>{btnText}</button>
+        <button className='btn btn-success my-3' onClick={toggleStyle}>{btnText}</button>
         </div>
        
         </div>
