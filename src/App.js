@@ -32,7 +32,7 @@ import {
       setMode('dark');
       document.body.style.backgroundColor='grey';
       showAlert("Dark mode has been enabled","success")
-      document.title='Text-react- Dark mode';//change tab tittle content
+     // document.title='Text-react- Dark mode';//change tab tittle content
       // setInterval( ()=>{
       //   document.title='Text-react is an amazing mode'
       // },2000);
@@ -45,7 +45,7 @@ import {
       document.body.style.backgroundColor='white';
       showAlert("Light mode has been enable","success")
      
-      document.title='Text-react- Light mode';
+     // document.title='Text-react- Light mode';
     }
 
   }
@@ -55,9 +55,9 @@ import {
       <Navbar title='Text-react' aboutText='About Us' mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <Routes>      
-       <Route exact path="/about" element={<About />} />
+       <Route exact path="/about" element={<About mode={mode}/>} />
        <Route exact path="/" element={
-       <TextForm showAlert={showAlert} heading='Enter text below to Analyze' mode={mode}/>}/>
+       <TextForm showAlert={showAlert} heading='Try Text-react - Word Counter Character Counter Remove extra spaces' mode={mode}/>}/>
       </Routes>
     </Router>} 
      {/* <Navbar title='Text-react' /> */}
